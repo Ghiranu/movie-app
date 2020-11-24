@@ -10,6 +10,10 @@
     
 }
 
+.content:hover  {
+    opacity: 0.8;
+    
+}
 
 .content {
     background-color: #3f51b5;
@@ -25,10 +29,12 @@
     list-style: none;
     display: block;
     color: black;
+    
 }
 
 .listItem .addMovie {
     visibility: hidden;
+    
 }
 
 .listItem:hover > .addMovie {
