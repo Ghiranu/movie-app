@@ -1,0 +1,37 @@
+.main {
+    margin-top: 10px;
+    
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+
+.content {
+    background-color: #3f51b5;
+}
+
+.box {
+    display: inline;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+.listItem {
+    list-style: none;
+    display: block;
+    color: black;
+}
+
+.listItem .addMovie {
+    visibility: hidden;
+}
+
+.listItem:hover > .addMovie {
+    display: inline-flex;
+    visibility: visible;
+}
