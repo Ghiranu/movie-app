@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/movie-app/static/css/main.1281d1a6.chunk.css",
+    "main.js": "/movie-app/static/js/main.d995f31e.chunk.js",
+    "main.js.map": "/movie-app/static/js/main.d995f31e.chunk.js.map",
+    "runtime-main.js": "/movie-app/static/js/runtime-main.03d31c0a.js",
+    "runtime-main.js.map": "/movie-app/static/js/runtime-main.03d31c0a.js.map",
+    "static/js/2.66b2704c.chunk.js": "/movie-app/static/js/2.66b2704c.chunk.js",
+    "static/js/2.66b2704c.chunk.js.map": "/movie-app/static/js/2.66b2704c.chunk.js.map",
+    "static/js/3.bd93b03e.chunk.js": "/movie-app/static/js/3.bd93b03e.chunk.js",
+    "static/js/3.bd93b03e.chunk.js.map": "/movie-app/static/js/3.bd93b03e.chunk.js.map",
+    "index.html": "/movie-app/index.html",
+    "static/css/main.1281d1a6.chunk.css.map": "/movie-app/static/css/main.1281d1a6.chunk.css.map",
+    "static/js/2.66b2704c.chunk.js.LICENSE.txt": "/movie-app/static/js/2.66b2704c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/movie-app/static/media/Blacksword.deaedec7.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.03d31c0a.js",
+    "static/js/2.66b2704c.chunk.js",
+    "static/css/main.1281d1a6.chunk.css",
+    "static/js/main.d995f31e.chunk.js"
+  ]
+}
