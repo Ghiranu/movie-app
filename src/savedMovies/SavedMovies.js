@@ -12,7 +12,7 @@ const MovieItem = (props) => {
         <CardContent className={styles.content}>
           <li className={styles.listItem} key={movie.id}>
             <img
-              src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
+              src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
               alt="logo"
             />
             
@@ -47,6 +47,7 @@ const MovieItem = (props) => {
 const SavedMovies = (props) => {
   return (
     <div>
+      <h1 className={styles.title}>Saved movies</h1>
       {props.savedMovies && props.savedMovies.length > 0 ? (
         <ul className={styles.cards}>
           {props.savedMovies.map((movie) => (
