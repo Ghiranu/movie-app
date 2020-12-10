@@ -9,6 +9,7 @@
 
 .content:hover {
   opacity: 0.8;
+  transform: scale(1.1);
 }
 
 .content {
@@ -16,7 +17,8 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  height: 400px;
+  height: 420px;
+  cursor: pointer;
 }
 
 .box {
@@ -45,4 +47,17 @@
 
 .title {
   text-align: center;
+}
+
+
+.delete {
+  color: red;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
 }

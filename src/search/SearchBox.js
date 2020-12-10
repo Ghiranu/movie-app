@@ -14,48 +14,51 @@ import styles from "./SearchBox.module.css";
 
 const MovieList = (props) => {
   return (
-    <ol className={styles.cards}>
-      {props.movies.map((movie) => (
-        <Grid item xs={3}>
-          <Card variant="outlined" className={styles.root}>
-            <CardContent className={styles.content}>
-              <li className={styles.listItem} key={movie.id}>
-                <img
-                  src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
-                  alt="logo"
-                />
+    <div>
+      <ol className={styles.cards}>
+        {props.movies.map((movie) => {
+          return (movie.poster_path != null) ? (
+          <Grid item xs={3}>
+            <Card variant="outlined" className={styles.root}>
+              <CardContent className={styles.content}>
+                <li className={styles.listItem} key={movie.id}>
+                  <img
+                    src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
+                    alt="logo"
+                  />
 
-                <Typography variant="h5">
-                  <b>{movie.title}</b>
-                </Typography>
-                <Typography variant="h6">
-                  <div>
-                    <b>Release: </b>
-                    {movie.release_date}
-                  </div>
+                  <Typography variant="h5">
+                    <b>{movie.title}</b>
+                  </Typography>
+                  <Typography variant="h6">
+                    <div>
+                      <b>Release: </b>
+                      {movie.release_date}
+                    </div>
 
-                  <b>Rating:</b>
-                  {movie.vote_average}
-                </Typography>
-                <Button
-                  className={styles.addMovie}
-                  color="secondary"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.onMovieAdd(movie);
-                  }}
-                >
-                  <AddIcon />
-                  Add Movie
-                </Button>
-              </li>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </ol>
+                    <b>Rating:</b>
+                    {movie.vote_average}
+                  </Typography>
+                  <Button
+                    className={styles.addMovie}
+                    color="secondary"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.onMovieAdd(movie);
+                    }}
+                  >
+                    <AddIcon />
+                    Add Movie
+                  </Button>
+                </li>
+              </CardContent>
+            </Card>
+          </Grid>
+        ) : null})}
+      </ol>
+    </div>
   );
-};
+}
 const SearchBox = (props) => {
   const [term, setTerm] = useState("");
   const [movies, setMovies] = useState([]);
@@ -81,7 +84,6 @@ const SearchBox = (props) => {
             : null;
         }}
       />
-
       <div className={styles.box}>
         <Button
           size="medium"
@@ -93,7 +95,7 @@ const SearchBox = (props) => {
         >
           Search
         </Button>
-
+          
         <MovieList movies={movies} onMovieAdd={localMovieAdd} />
       </div>
     </div>
@@ -101,3 +103,5 @@ const SearchBox = (props) => {
 };
 
 export default SearchBox;
+
+

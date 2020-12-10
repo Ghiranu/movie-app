@@ -1,7 +1,8 @@
 import React from "react";
-import { Card, CardContent, Grid, Typography } from "@material-ui/core";
-
+import { Card, CardContent, Grid, Typography, Button } from "@material-ui/core";
+import TrashIcon from '@material-ui/icons/Delete';
 import styles from "../search/SearchBox.module.css";
+import Rating from '../rating/Rating'
 
 const MovieItem = (props) => {
   const movie = props.movie;
@@ -14,12 +15,13 @@ const MovieItem = (props) => {
               src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
               alt="logo"
             />
-
+            
             <Typography variant="h5">
               <div>
                 <b>{movie.title}</b>
               </div>
             </Typography>
+            
             <Typography variant="h6">
               <div>
                 <b>Release: </b>
@@ -29,6 +31,12 @@ const MovieItem = (props) => {
               <b>Rating:</b>
               {movie.vote_average}
             </Typography>
+            
+            <Button onClick={() => props.onMovieDelete(movie.id)}>
+              <TrashIcon className={styles.delete}/>
+            </Button>
+
+            <Rating movie={movie}/>
           </li>
         </CardContent>
       </Card>
@@ -42,7 +50,10 @@ const SavedMovies = (props) => {
       {props.savedMovies && props.savedMovies.length > 0 ? (
         <ul className={styles.cards}>
           {props.savedMovies.map((movie) => (
-            <MovieItem movie={movie} />
+            <MovieItem movie={movie} 
+            onMovieDelete={props.onMovieDelete}
+            key={movie.id}
+            />
           ))}
         </ul>
       ) : (

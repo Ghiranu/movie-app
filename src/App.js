@@ -39,13 +39,27 @@ class App extends React.Component {
     );
   };
 
+  handleDeleteMovie = (movieId) => {
+    const index = this.state.movies.findIndex(movie => movie.id === movieId)
+    this.setState(
+      {
+        movies: this.state.movies.filter(item => item.id !== movieId),
+      },
+      () => {
+        window.localStorage.setItem('saved-movies',
+        JSON.stringify(this.state.movies)
+        )
+      },
+    )
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBox onMovieAdd={this.handleAddMovie} />
-        <PopularMovies />
-        <SavedMovies savedMovies={this.state.movies} />
+        <PopularMovies onMovieAdd={this.handleAddMovie}/>
+        <SavedMovies savedMovies={this.state.movies} onMovieDelete={this.handleDeleteMovie} />
       </div>
     );
   }
