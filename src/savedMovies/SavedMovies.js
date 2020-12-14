@@ -44,24 +44,29 @@ const MovieItem = (props) => {
   );
 };
 
+
+
 const SavedMovies = (props) => {
   return (
     <div>
       <h1 className={styles.title}>Saved movies</h1>
       {props.savedMovies && props.savedMovies.length > 0 ? (
         <ul className={styles.cards}>
-          {props.savedMovies.map((movie) => (
+          {props.savedMovies.map((movie) => 
+             (
             <MovieItem movie={movie} 
             onMovieDelete={props.onMovieDelete}
             key={movie.id}
             />
           ))}
         </ul>
+        
       ) : (
         "No saved movies"
       )}
     </div>
   );
 };
+
 
 export default SavedMovies;

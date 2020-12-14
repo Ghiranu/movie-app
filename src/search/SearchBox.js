@@ -6,10 +6,10 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { searchMovies } from "../shared/API";
 import AddIcon from "@material-ui/icons/Add";
-
+import SearchIcon from '@material-ui/icons/Search';
 import styles from "./SearchBox.module.css";
 
 const MovieList = (props) => {
@@ -60,8 +60,14 @@ const MovieList = (props) => {
   );
 }
 const SearchBox = (props) => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState('');
   const [movies, setMovies] = useState([]);
+
+
+  useEffect(() => {
+    
+    searchMovies(term).then((res) => setMovies(res.data.results));
+  }, [term]);
 
   const localMovieAdd = (movie) => {
     setMovies([]);
@@ -69,15 +75,14 @@ const SearchBox = (props) => {
   };
   return (
     <div className={styles.main}>
+      
       <TextField
         size="small"
         label="Search for a movie"
         variant="outlined"
         color="primary"
         value={term}
-        onChange={(e) => {
-          setTerm(e.target.value);
-        }}
+        onChange={e => setTerm(e.target.value)}
         onKeyDown={(e) => {
           return e.key === "Enter"
             ? searchMovies(term).then((res) => setMovies(res.data.results))
