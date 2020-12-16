@@ -22,10 +22,10 @@ function PopularMovies(props) {
       <h1 className={styles.title}>Popular movies of the day</h1>
       <ol className={styles.cards}>
         {movies.map((movie) => (
-          <Grid item xs={3}>
+          <Grid item xs={3} key={movie.id}>
             <Card variant="outlined" className={styles.root}>
               <CardContent className={styles.content}>
-                <li className={styles.listItem} key={movie.id}>
+                <li className={styles.listItem}>
                   <img
                     src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
                     alt="logo"

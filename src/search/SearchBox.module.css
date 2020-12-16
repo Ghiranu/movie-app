@@ -21,7 +21,6 @@
   cursor: pointer;
 }
 
-
 .box {
   display: inline;
   margin-top: 7px;
@@ -53,9 +52,8 @@
   color: #3f51b5;
 }
 
-
 .delete {
-  color: red;
+  margin-top: 10px;
 }
 
 input[type="radio"] {
@@ -64,4 +62,19 @@ input[type="radio"] {
 
 .star {
   cursor: pointer;
+}
+
+.rating {
+  padding: 10px;
+}
+
+.appbar {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.dialogtitle {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
 }

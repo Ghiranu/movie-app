@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
-import styles from '../search/SearchBox.module.css'
+import styles from "../search/SearchBox.module.css";
 
 const useStateWithLocalStorage = (local) => {
-  const [rating, setRating] = useState (
-    localStorage.getItem(local) || null);
-  
-    useEffect(() => {
-      localStorage.setItem(local, rating);
-    }, [rating, local]);
+  const [rating, setRating] = useState(localStorage.getItem(local) || null);
 
-    return [rating, setRating];
-}
+  useEffect(() => {
+    localStorage.setItem(local, rating);
+  }, [rating, local]);
+
+  return [rating, setRating];
+};
 
 const Rating = (props) => {
   const [rating, setRating] = useStateWithLocalStorage(props.movie.id);
   const [hover, setHover] = useState(null);
 
-  const setRatings = event => setRating(event.target.value);
+  const setRatings = (event) => setRating(event.target.value);
 
   return (
     <div className="App">
@@ -43,6 +42,6 @@ const Rating = (props) => {
       })}
     </div>
   );
-}
+};
 
 export default Rating;

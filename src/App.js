@@ -32,7 +32,7 @@ class App extends React.Component {
     if (localKey) {
       if (localKey.some((item) => item.id === movie.id)) {
         this.handleDialogOpen();
-        setTimeout(() => this.handleDialogClose(), 1500);
+        setTimeout(() => this.handleDialogClose(), 800);
       } else {
         this.handleAddMovie(movie);
       }
@@ -62,7 +62,7 @@ class App extends React.Component {
       },
       () => {
         this.handleDialogOpen();
-        setTimeout(() => this.handleDialogClose(), 1500);
+        setTimeout(() => this.handleDialogClose(), 800);
         window.localStorage.setItem(
           "saved-movies",
           JSON.stringify(this.state.movies)
