@@ -22,7 +22,7 @@ function PopularMovies(props) {
       <h1 className={styles.title}>Popular movies of the day</h1>
       <ol className={styles.cards}>
         {movies.map((movie) => (
-          <Grid item xs={3} key={movie.id}>
+          <Grid item xs={4} key={movie.id}>
             <Card variant="outlined" className={styles.root}>
               <CardContent className={styles.content}>
                 <li className={styles.listItem}>

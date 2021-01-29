@@ -9,7 +9,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { searchMovies } from "../shared/API";
 import AddIcon from "@material-ui/icons/Add";
-import styles from "./SearchBox.module.css";
+import styles from "../search/SearchBox.module.css";
 
 const MovieList = (props) => {
   return (
@@ -17,7 +17,7 @@ const MovieList = (props) => {
       <ol className={styles.cards}>
         {props.movies.map((movie) => {
           return movie.poster_path != null ? (
-            <Grid item xs={3} key={movie.id}>
+            <Grid item xs={4} key={movie.id}>
               <Card variant="outlined" className={styles.root}>
                 <CardContent className={styles.content}>
                   <li className={styles.listItem}>

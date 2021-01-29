@@ -53,7 +53,7 @@ export default function Features() {
               <li>List of Popular Movies of the day.</li>
               <li>SearchBar with results displayed as you type.</li>
               <li>AddMovie Button to create a Saved Movies List.</li>
-              <li>Dialogmessage when you add a movie to Saved Movies.</li>
+              <li>Dialog message when you add a movie to Saved Movies.</li>
               <li>Highlight the movie whenever you hover it.</li>
               <li>Delete Button to remove a movie from SavedMovies List.</li>
               <li>Personal Rating System for saved movies.</li>
