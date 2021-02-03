@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-
 import Header from "./shared/Header";
 import SearchBox from "./search/SearchBox";
 import SavedMovies from "./savedMovies/SavedMovies";
@@ -8,6 +7,7 @@ import PopularMovies from "./popular/PopularMovies";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import { BreakpointProvider } from "react-socks";
 class App extends React.Component {
   // state = {
   //   savedMovies: []
@@ -88,26 +88,28 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <SearchBox onMovieAdd={this.checkMovie} />
-        <PopularMovies onMovieAdd={this.checkMovie} />
-        <SavedMovies
-          savedMovies={this.state.movies}
-          onMovieDelete={this.handleDeleteMovie}
-        />
-        <Dialog
-          open={this.state.isDialogOpen}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              Movie has been added / Movie already in Favorites
-            </DialogContentText>
-          </DialogContent>
-        </Dialog>
-      </div>
+      <BreakpointProvider>
+        <div className="App">
+          <Header />
+          <SearchBox onMovieAdd={this.checkMovie} />
+          <PopularMovies onMovieAdd={this.checkMovie} />
+          <SavedMovies
+            savedMovies={this.state.movies}
+            onMovieDelete={this.handleDeleteMovie}
+          />
+          <Dialog
+            open={this.state.isDialogOpen}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Movie has been added / Movie already in Favorites
+              </DialogContentText>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </BreakpointProvider>
     );
   }
 }

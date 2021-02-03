@@ -1,61 +1,35 @@
-import {
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-} from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { searchMovies } from "../shared/API";
-import AddIcon from "@material-ui/icons/Add";
 import styles from "../search/SearchBox.module.css";
+import Card from "../Card/Card";
+import Movie from "../Movie/Movie";
+import "../Movie/MovieList.scss";
+import { Breakpoint } from "react-socks";
 
 const MovieList = (props) => {
+  const movieInfo = props.movies.map((movie) => {
+    return movie.poster_path != null ? (
+      <Card key={movie.id} movieId={movie.id}>
+        <Movie
+          title={movie.title}
+          overview={movie.overview}
+          poster={movie.poster_path}
+          released={movie.release_date}
+          details={movie}
+          onMovieAdd={props.onMovieAdd}
+        />
+      </Card>
+    ) : null;
+  });
   return (
     <div>
-      <ol className={styles.cards}>
-        {props.movies.map((movie) => {
-          return movie.poster_path != null ? (
-            <Grid item xs={4} key={movie.id}>
-              <Card variant="outlined" className={styles.root}>
-                <CardContent className={styles.content}>
-                  <li className={styles.listItem}>
-                    <img
-                      src={`http://image.tmdb.org/t/p/w154/${movie.poster_path}`}
-                      alt="logo"
-                    />
-
-                    <Typography variant="h5">
-                      <b>{movie.title}</b>
-                    </Typography>
-                    <Typography variant="h6">
-                      <div>
-                        <b>Release: </b>
-                        {movie.release_date}
-                      </div>
-
-                      <b>Rating:</b>
-                      {movie.vote_average}
-                    </Typography>
-                    <Button
-                      className={styles.addMovie}
-                      color="secondary"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        props.onMovieAdd(movie);
-                      }}
-                    >
-                      <AddIcon />
-                      Add Movie
-                    </Button>
-                  </li>
-                </CardContent>
-              </Card>
-            </Grid>
-          ) : null;
-        })}
-      </ol>
+      <Breakpoint medium up>
+        <div className="movie-list">{movieInfo}</div>
+      </Breakpoint>
+      <Breakpoint small down>
+        <div className="movie-list-mobile">{movieInfo}</div>
+      </Breakpoint>
     </div>
   );
 };

@@ -2,49 +2,6 @@
   margin-top: 10px;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.content:hover {
-  opacity: 0.8;
-  /* transform: scale(1.1); */
-}
-
-.content {
-  background-color: #939393;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  height: 500px;
-  cursor: pointer;
-}
-
-.box {
-  display: inline;
-  margin-top: 7px;
-  margin-left: 5px;
-}
-
-.listItem {
-  list-style: none;
-  color: black;
-}
-
-.listItem .addMovie {
-  visibility: hidden;
-}
-
-.listItem:hover > .addMovie {
-  display: inline-flex;
-  visibility: visible;
-}
-
-.root {
-  max-height: 430px;
-}
-
 .title {
   text-align: center;
   font-family: Blacksword;
@@ -54,6 +11,7 @@
 
 .delete {
   margin-top: 15px;
+  margin-left: 15px;
 }
 
 input[type="radio"] {
@@ -77,4 +35,14 @@ input[type="radio"] {
   text-align: center;
   text-transform: uppercase;
   font-weight: bolder;
+}
+
+.movietitle {
+  text-decoration: none;
+  color: white;
+}
+
+.saved {
+  display: flex;
+  flex-wrap: wrap;
 }
