@@ -3,9 +3,7 @@ import "./Card.scss";
 
 const Card = (props) => (
   <>
-    <div className="card-component" style={props.style || null}>
-      {props.children}
-    </div>
+    <div className="card-component">{props.children}</div>
   </>
 );
 

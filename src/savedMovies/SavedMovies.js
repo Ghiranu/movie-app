@@ -1,11 +1,12 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import styles from "../search/SearchBox.module.css";
 import Rating from "../rating/Rating";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Card from "../Card/Card";
 import "../Movie/MovieList.scss";
 import { Breakpoint } from "react-socks";
+import styles from "../search/SearchBox.module.css";
+import { Translation } from "react-i18next";
 
 const MovieItem = (props) => {
   const movie = props.movie;
@@ -29,7 +30,7 @@ const MovieItem = (props) => {
               <strong>Release Date:</strong> {movie.release_date}
             </p>
             <Button
-              className={styles.delete}
+              className="delete"
               variant="contained"
               color="secondary"
               startIcon={<DeleteIcon />}
@@ -61,7 +62,7 @@ const MovieItem = (props) => {
               <strong>Release Date:</strong> {movie.release_date}
             </p>
             <Button
-              className={styles.delete}
+              className="delete"
               variant="contained"
               color="secondary"
               startIcon={<DeleteIcon />}
@@ -94,7 +95,9 @@ const SavedMovies = (props) => {
     <div>
       {props.savedMovies && props.savedMovies.length > 0 ? (
         <div>
-          <h1 className={styles.title}>Saved movies</h1>
+          <Translation>
+            {(t) => <h1 className={styles.title}>{t("Saved Movies")}</h1>}
+          </Translation>
           {props.savedMovies.map((movie) => (
             <MovieItem
               movie={movie}

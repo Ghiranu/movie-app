@@ -22,6 +22,7 @@ const MovieList = (props) => {
       </Card>
     ) : null;
   });
+
   return (
     <div>
       <Breakpoint medium up>

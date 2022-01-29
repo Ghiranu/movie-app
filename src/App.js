@@ -72,7 +72,7 @@ class App extends React.Component {
   };
 
   handleDeleteMovie = (movieId) => {
-    const index = this.state.movies.findIndex((movie) => movie.id === movieId);
+    // const index = this.state.movies.findIndex((movie) => movie.id === movieId);
     this.setState(
       {
         movies: this.state.movies.filter((item) => item.id !== movieId),

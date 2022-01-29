@@ -4,14 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./fonts/Blacksword.otf";
+import "./i18n";
 
-const apiKey = process.env.REACT_APP_API_KEY;
+// const apiKey = process.env.REACT_APP_API_KEY;
 
 ReactDOM.render(
   <App
-    onLoad={fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
-    ).then((response) => response.json())}
+  // onLoad={fetch(
+  //   `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+  // ).then((response) => response.json())}
   />,
   document.getElementById("root")
 );
